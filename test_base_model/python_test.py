@@ -4,8 +4,9 @@ import os
 from openai import OpenAI
 import openai
 
-api_key = "foo"
-base_url = "http://tobe3090:8000/v1/"
+host="172.20.10.11"
+api_key = "test"
+base_url = f"http://{host}:8000/v1/"
 model = "qwen2-7b-instruct"
 
 client = OpenAI(api_key=api_key, base_url=base_url)
@@ -13,8 +14,8 @@ client = OpenAI(api_key=api_key, base_url=base_url)
 response = client.chat.completions.create(
     model=model,
     messages=[
-        {"role": "system", "content": "You are a helpful assistant"},
-        {"role": "user", "content": "Hello, who are you?"},
+        #{"role": "user", "content": "Hello, who are you?"},
+        {"role": "user", "content": "你是谁"},
     ],
     stream=False
 )
